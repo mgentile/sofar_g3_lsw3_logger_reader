@@ -4,7 +4,7 @@ import (
 	"encoding/binary"
 	"fmt"
 	"log"
-
+	"strconv"
 	"github.com/sigurn/crc16"
 
 	"github.com/kubaceg/sofar_g3_lsw3_logger_reader/ports"
@@ -83,9 +83,10 @@ func readData(connPort ports.CommunicationPort, serialNumber uint) (map[string]i
 
 	for k, v := range reply {
 		result[k] = v
+		log.Printf("%s: %d", k, v)
 	}
 
-	reply, err = readRegisterRange(rrPVOutput, connPort, serialNumber)
+	/*reply, err = readRegisterRange(rrPVOutput, connPort, serialNumber)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +130,7 @@ func readData(connPort ports.CommunicationPort, serialNumber uint) (map[string]i
 	for k, v := range reply {
 		result[k] = v
 	}
-
+*/
 	return result, err
 }
 
@@ -184,9 +185,11 @@ func readRegisterRange(rr registerRange, connPort ports.CommunicationPort, seria
 			continue
 		}
 
+		value, _ := strconv.ParseUint(f.factor, 10, 64)
+
 		switch f.valueType {
 		case "U16":
-			reply[f.name] = binary.BigEndian.Uint16(modbusReply[fieldOffset : fieldOffset+2])
+			reply[f.name] = binary.BigEndian.Uint16(modbusReply[fieldOffset : fieldOffset+2]) * uint16(value)
 		case "U32":
 			reply[f.name] = binary.BigEndian.Uint32(modbusReply[fieldOffset : fieldOffset+4])
 		case "I16":

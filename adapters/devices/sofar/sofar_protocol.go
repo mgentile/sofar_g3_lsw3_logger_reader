@@ -111,9 +111,9 @@ var rrGridOutput = registerRange{
 	start: 0x480,
 	end:   0x4bc,
 	replyFields: []field{
-		{0x0484, "Frequency_Grid", "U16", "0.01", "Hz"},
-		{0x0485, "ActivePower_Output_Total", "I16", "0.01", "kW"},
-		{0x0486, "ReactivePower_Output_Total", "I16", "0.01", "kW"},
+		//{0x0484, "Frequency_Grid", "U16", "0.01", "Hz"},
+		//{0x0485, "ActivePower_Output_Total", "I16", "0.01", "kW"},
+		/*{0x0486, "ReactivePower_Output_Total", "I16", "0.01", "kW"},
 		{0x0487, "ApparentPower_Output_Total", "I16", "0.01", "kW"},
 		{0x0488, "ActivePower_PCC_Total", "I16", "0.01", "kW"},
 		{0x0489, "ReactivePower_PCC_Total", "I16", "0.01", "kW"},
@@ -153,9 +153,9 @@ var rrGridOutput = registerRange{
 		{0x04AB, "PowerFactor_PCC_T", "I16", "0.001", "p.u."},
 		{0x04AC, "T_Rsvd1", "", "", ""},
 		{0x04AD, "T_Rsvd2", "", "", ""},
-		{0x04AE, "ActivePower_PV_Ext", "U16", "0.01", "kW"},
-		{0x04AF, "ActivePower_Load_Sys", "U16", "0.01", "kW"},
-		{0x04B0, "Voltage_Phase_L1N", "U16", "0.1", "V"},
+		{0x04AE, "ActivePower_PV_Ext", "U16", "0.01", "kW"},*/
+		{0x04AF, "ActivePower_Load_Sys", "U16", "10", "W"},
+		/*{0x04B0, "Voltage_Phase_L1N", "U16", "0.1", "V"},
 		{0x04B1, "Current_Output_L1N", "U16", "0.01", ""},
 		{0x04B2, "ActivePower_Output_L1N", "I16", "0.01", "kW"},
 		{0x04B3, "Current_PCC_L1N", "U16", "0.01", ""},
@@ -167,7 +167,7 @@ var rrGridOutput = registerRange{
 		{0x04B9, "ActivePower_PCC_L2N", "I16", "0.01", "kW"},
 		{0x04BA, "Voltage_Line_L1", "U16", "0.1", "V"},
 		{0x04BB, "Voltage_Line_L2", "U16", "0.1", "V"},
-		{0x04BC, "Voltage_Line_L3", "U16", "0.1", "V"},
+		{0x04BC, "Voltage_Line_L3", "U16", "0.1", "V"},*/
 	},
 }
 

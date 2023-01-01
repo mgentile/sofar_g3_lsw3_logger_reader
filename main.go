@@ -62,7 +62,7 @@ func main() {
 	failedConnections := 0
 
 	for {
-		log.Printf("performing measurements")
+		//log.Printf("performing measurements")
 		timeStart := time.Now()
 
 		measurements, err := device.Query()
